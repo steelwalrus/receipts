@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Your private career evidence bank. Keep the words. Find the story.">
+  <title>Receipts · Your career, on record</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#library"><span class="brand-icon">r.</span>receipts</a>
+    <div class="workspace"><span class="workspace-avatar">R</span><div><strong>My evidence bank</strong><small>Personal workspace</small></div></div>
+    <p class="nav-label">YOUR ARCHIVE</p>
+    <nav aria-label="Main navigation">
+      <a href="#library" data-view="library"><span aria-hidden="true">▤</span>Evidence library<span class="nav-count" id="nav-count">0</span></a>
+      <a href="#conversations" data-view="conversations"><span aria-hidden="true">◫</span>Conversations</a>
+      <a href="#interview" data-view="interview"><span aria-hidden="true">↗</span>Interview prep</a>
+      <a href="#data" data-view="data"><span aria-hidden="true">⇅</span>Data & backups</a>
+    </nav>
+    <div class="sidebar-note"><span class="tiny-label">A LITTLE AT A TIME</span><p>The best stories start with<br>“Oh, I just remembered…”</p><button id="sidebar-capture" class="button sidebar-button">Capture a memory <span>＋</span></button></div>
+    <div class="sidebar-footer"><span class="status-dot"></span>Stored on this computer<span>v0.1</span></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div><span class="breadcrumb">My workspace</span><span class="slash">/</span><span id="breadcrumb-current">Evidence library</span></div><div class="topbar-actions"><button class="text-button" data-action="refresh">Refresh archive ↻</button><span class="private-badge"><span class="status-dot"></span>Private · Local</span></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="main-footer"><span>Keep the words. Find the story.</span><span>Made for the things a CV leaves out.</span></footer>
+  </div>
+  <dialog id="capture-dialog" class="modal">
+    <form id="capture-form">
+      <div class="dialog-heading"><div><span class="eyebrow">PUT IT ON RECORD</span><h2>What do you remember?</h2></div><button type="button" class="icon-button" data-close="capture-dialog" aria-label="Close capture">×</button></div>
+      <p class="muted">Messy is fine. Your words will be saved exactly as entered.</p>
+      <label for="capture-conversation">Conversation</label><select id="capture-conversation"><option value="new">Start a new conversation</option></select>
+      <div id="capture-title-wrap"><label for="capture-title">Conversation title</label><input id="capture-title" maxlength="300" placeholder="e.g. A difficult project handover"></div>
+      <label for="capture-body">Your original account</label><textarea id="capture-body" rows="10" required placeholder="What happened? What did you do? What details might matter later?"></textarea>
+      <div class="form-footer"><small>Originals stay intact. Add corrections as new messages.</small><button class="button primary" type="submit">Save original <span>↗</span></button></div>
+      <p id="capture-error" class="form-error" role="alert"></p>
+    </form>
+  </dialog>
+  <dialog id="note-dialog" class="modal">
+    <form id="note-form">
+      <div class="dialog-heading"><div><span class="eyebrow">MAKE IT USEFUL</span><h2 id="note-heading">Extract a note</h2></div><button type="button" class="icon-button" data-close="note-dialog" aria-label="Close note">×</button></div>
+      <p class="muted">A separate summary, connected to the original. Keep claims grounded in the source.</p>
+      <label for="note-title">Title</label><input id="note-title" maxlength="300" required placeholder="The story in a few words">
+      <label for="note-body">Summary or interview notes</label><textarea id="note-body" rows="9" required placeholder="What happened, your contribution, the outcome, and anything still uncertain…"></textarea>
+      <label for="note-tags">Tags <span class="optional">· separated by commas</span></label><input id="note-tags" placeholder="leadership, coaching, delivery">
+      <label for="note-status">Review status</label><select id="note-status"><option value="draft">Draft — needs review</option><option value="reviewed">Reviewed</option></select>
+      <p id="note-sources-label" class="source-reference"></p>
+      <div class="form-footer"><small>Earlier revisions remain in your vault.</small><button type="submit" class="button primary">Save note <span>↗</span></button></div><p id="note-error" class="form-error" role="alert"></p>
+    </form>
+  </dialog>
+  <dialog id="detail-dialog" class="detail-dialog"><div id="detail-content"></div></dialog>
+  <input id="import-file" type="file" accept=".json,.txt,.md" hidden>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

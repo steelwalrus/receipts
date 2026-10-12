@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "receipts"
+version = "0.2.0"
+description = "A private, local record of your career: a timeline, the stories behind it, and interview prep with Claude or Codex."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = ["mcp>=1.10"]
+
+[project.scripts]
+receipts = "receipts.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["receipts*"]
+
+[tool.setuptools.package-data]
+receipts = ["static/*", "static/fonts/*", "skills/*/SKILL.md"]

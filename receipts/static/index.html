@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Receipts</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <a class="wordmark" href="#timeline">Receipts</a>
+    <nav aria-label="Views">
+      <a href="#timeline" data-view="timeline">Timeline</a>
+      <a href="#entries" data-view="entries">Entries</a>
+      <a href="#coverage" data-view="coverage">Coverage</a>
+    </nav>
+    <div class="bar-actions">
+      <details class="menu">
+        <summary>Export</summary>
+        <div class="menu-panel">
+          <a href="/api/export.md" download>Markdown (readable)</a>
+          <a href="/api/export.json" download>JSON (backup)</a>
+        </div>
+      </details>
+      <button type="button" class="icon-button" id="theme" aria-label="Switch colour theme" title="Switch colour theme">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 3a7 7 0 0 1 0 14z" fill="currentColor"/></svg>
+      </button>
+      <button type="button" class="button primary" data-action="new-entry">Add entry</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1"></main>
+
+  <dialog id="drawer" class="drawer" aria-labelledby="drawer-title"></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
